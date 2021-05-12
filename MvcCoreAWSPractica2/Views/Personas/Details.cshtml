@@ -1,0 +1,54 @@
+﻿@model MvcCoreAWSPractica2.Models.Persona
+
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Persona</h4>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdUsuario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+    </dl>
+</div>
+@if (Model.Fotos != null)
+{
+    <h1>Fotos</h1>
+    foreach(Foto foto in Model.Fotos)
+    {
+        <h4>@foto.Titulo</h4>
+        <img src="@foto.Imagen" style="width:150px;height:auto" />
+       
+    }
+}
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdUsuario }) |
+    <a asp-action="Index">Back to List</a>
+</div>
